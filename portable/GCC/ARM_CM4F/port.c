@@ -577,7 +577,7 @@ void xPortSysTickHandler( void )
             portNVIC_SYSTICK_CURRENT_VALUE_REG = 0UL;
 
             /* Restart SysTick. */
-            portNVIC_SYSTICK_CTRL_REG |= portNVIC_SYSTICK_ENABLE_BIT;
+            //portNVIC_SYSTICK_CTRL_REG |= portNVIC_SYSTICK_ENABLE_BIT;
 
             /* Sleep until something happens.  configPRE_SLEEP_PROCESSING() can
              * set its parameter to 0 to indicate that its implementation contains
@@ -693,7 +693,7 @@ __attribute__( ( weak ) ) void vPortSetupTimerInterrupt( void )
     #if ( configUSE_TICKLESS_IDLE == 1 )
         {
             ulTimerCountsForOneTick = ( configSYSTICK_CLOCK_HZ / configTICK_RATE_HZ );
-            xMaximumPossibleSuppressedTicks = portMAX_24_BIT_NUMBER / ulTimerCountsForOneTick;
+            xMaximumPossibleSuppressedTicks = 0xFFF0; // portMAX_24_BIT_NUMBER / ulTimerCountsForOneTick;
             ulStoppedTimerCompensation = portMISSED_COUNTS_FACTOR / ( configCPU_CLOCK_HZ / configSYSTICK_CLOCK_HZ );
         }
     #endif /* configUSE_TICKLESS_IDLE */
