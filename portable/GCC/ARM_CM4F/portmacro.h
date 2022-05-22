@@ -189,6 +189,8 @@
         return xReturn;
     }
 
+    BaseType_t xPortIsInsideCriticalSection( void );
+
 /*-----------------------------------------------------------*/
 
     portFORCE_INLINE static void vPortRaiseBASEPRI( void )

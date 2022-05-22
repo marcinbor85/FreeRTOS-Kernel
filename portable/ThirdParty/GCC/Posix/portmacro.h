@@ -102,6 +102,10 @@ extern void vPortExitCritical( void );
 #define portENTER_CRITICAL()					vPortEnterCritical()
 #define portEXIT_CRITICAL()						vPortExitCritical()
 
+#define xPortIsInsideInterrupt() (pdFALSE)
+
+BaseType_t xPortIsInsideCriticalSection( void );
+
 /*-----------------------------------------------------------*/
 
 extern void vPortThreadDying( void *pxTaskToDelete, volatile BaseType_t *pxPendYield );

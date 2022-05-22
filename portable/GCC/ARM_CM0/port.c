@@ -286,6 +286,11 @@ void vPortExitCritical( void )
 }
 /*-----------------------------------------------------------*/
 
+BaseType_t xPortIsInsideCriticalSection( void )
+{
+        return ( uxCriticalNesting > 0 ) ? pdTRUE : pdFALSE;
+}
+
 uint32_t ulSetInterruptMaskFromISR( void )
 {
     __asm volatile (

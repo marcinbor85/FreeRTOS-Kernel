@@ -436,6 +436,11 @@ void vPortExitCritical( void )
 }
 /*-----------------------------------------------------------*/
 
+BaseType_t xPortIsInsideCriticalSection( void )
+{
+        return ( uxCriticalNesting > 0 ) ? pdTRUE : pdFALSE;
+}
+
 void xPortPendSVHandler( void )
 {
     /* This is a naked function. */

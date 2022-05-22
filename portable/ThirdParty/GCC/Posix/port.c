@@ -267,6 +267,11 @@ void vPortExitCritical( void )
 }
 /*-----------------------------------------------------------*/
 
+BaseType_t xPortIsInsideCriticalSection( void )
+{
+        return ( uxCriticalNesting > 0 ) ? pdTRUE : pdFALSE;
+}
+
 void vPortYieldFromISR( void )
 {
 Thread_t *xThreadToSuspend;
